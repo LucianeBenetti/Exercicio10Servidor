@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
-   <servlet>
+    <servlet>
         <servlet-name>validarformulario</servlet-name>
         <servlet-class>servlets.validarformulario</servlet-class>
     </servlet>
@@ -23,6 +23,10 @@
     <servlet>
         <servlet-name>CrudEcommerce</servlet-name>
         <servlet-class>servlets.CrudEcommerce</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CrudComprar</servlet-name>
+        <servlet-class>sevlets.CrudComprar</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>validarformulario</servlet-name>
@@ -50,6 +54,10 @@
     <servlet-mapping>
         <servlet-name>CrudEcommerce</servlet-name>
         <url-pattern>/crudecommerce</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CrudComprar</servlet-name>
+        <url-pattern>/crudcomprar</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

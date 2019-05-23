@@ -2,7 +2,9 @@ package controle.VO;
     
 import java.util.ArrayList;
 import java.util.Date;
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement
 public class Usuario {
     
     private int codigoUsuario;
@@ -11,19 +13,19 @@ public class Usuario {
     private String login;
     private int numeroCartao;
     private String senha;
-    private ArrayList <PedidoCompra> pedidoCompra;
+    private PedidoCompra [] pedidosDeCompra;
 
     public Usuario() {
     }
 
-    public Usuario(int codigoUsuario, String codigoSeguranca, Date dataValidade, String login, int numeroCartao, String senha, ArrayList<PedidoCompra> pedidoCompra) {
+    public Usuario(int codigoUsuario, String codigoSeguranca, Date dataValidade, String login, int numeroCartao, String senha, PedidoCompra[] pedidosDeCompra) {
         this.codigoUsuario = codigoUsuario;
         this.codigoSeguranca = codigoSeguranca;
         this.dataValidade = dataValidade;
         this.login = login;
         this.numeroCartao = numeroCartao;
         this.senha = senha;
-        this.pedidoCompra = pedidoCompra;
+        this.pedidosDeCompra = pedidosDeCompra;
     }
 
     public int getCodigoUsuario() {
@@ -74,17 +76,18 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public ArrayList<PedidoCompra> getPedidoCompra() {
-        return pedidoCompra;
+    public PedidoCompra[] getPedidosDeCompra() {
+        return pedidosDeCompra;
     }
 
-    public void setPedidoCompra(ArrayList<PedidoCompra> pedidoCompra) {
-        this.pedidoCompra = pedidoCompra;
+    public void setPedidosDeCompra(PedidoCompra[] pedidosDeCompra) {
+        this.pedidosDeCompra = pedidosDeCompra;
     }
 
     @Override
     public String toString() {
-        return "Usuario{" + "codigoUsuario=" + codigoUsuario + ", codigoSeguranca=" + codigoSeguranca + ", dataValidade=" + dataValidade + ", login=" + login + ", numeroCartao=" + numeroCartao + ", senha=" + senha + ", pedidoCompra=" + pedidoCompra + '}';
+        return "Usuario{" + "codigoUsuario=" + codigoUsuario + ", codigoSeguranca=" + codigoSeguranca + ", dataValidade=" + dataValidade + ", login=" + login + ", numeroCartao=" + numeroCartao + ", senha=" + senha + ", pedidosDeCompra=" + pedidosDeCompra + '}';
     }
-    
+
+   
 }
