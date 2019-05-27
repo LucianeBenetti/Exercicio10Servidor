@@ -1,6 +1,7 @@
 package sevlets;
 
 import controle.BO.UsuarioBo;
+import controle.VO.Item;
 import controle.VO.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -19,7 +20,7 @@ public class CrudEcommerce extends HttpServlet {
 
         String var1 = request.getParameter("cadastrar");
         String var2 = request.getParameter("validar");
-        //String cpf = request.getParameter("cpfpaciente");
+        String descricao = request.getParameter("descricao");
 
         //System.out.println("O cpf é: " + cpf);
         ArrayList<String> variavel = new ArrayList<String>();
@@ -28,6 +29,7 @@ public class CrudEcommerce extends HttpServlet {
         System.out.println("O array é: " + variavel);
 
         Usuario usuario = null;
+        Item item = null; 
         UsuarioBo usuarioBo = null;
 
         for (int i = 0; i < variavel.size(); i++) {
@@ -54,7 +56,7 @@ public class CrudEcommerce extends HttpServlet {
 //                            request.setAttribute("numerocartao", );
 //                            request.setAttribute("senha", );
 
-                            //request.getRequestDispatcher("Paciente/MostrarPacienteCadastrado.jsp").forward(request, response);
+                            request.getRequestDispatcher("Login.jsp").forward(request, response);
                             System.out.println("O novo Id é: " + novoId);
                         } else {
                             System.out.println("Já existe um usuário com o mesmo nome e/ou senha. Tente outro nome!");
@@ -83,6 +85,16 @@ public class CrudEcommerce extends HttpServlet {
                             request.getRequestDispatcher("Login.jsp").forward(request, response);
                         }
 
+                        break;
+                        
+                    case "pesquisar":
+                        item = new Item();
+                        usuarioBo = new UsuarioBo();
+                        item = usuarioBo.pesquisarItem(descricao);
+                        
+                        if(item != null){
+                            System.out.println(item);
+                        }
                         break;
                     default:
                         request.getRequestDispatcher("Login.jsp").forward(request, response);

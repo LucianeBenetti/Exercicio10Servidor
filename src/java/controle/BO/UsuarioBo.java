@@ -6,6 +6,7 @@
 package controle.BO;
 
 import controle.DAO.UsuarioDao;
+import controle.VO.Item;
 import controle.VO.Usuario;
 
 /**
@@ -15,8 +16,10 @@ import controle.VO.Usuario;
 public class UsuarioBo {
     
     UsuarioDao usuarioDao;
+    Item item;
     public int cadastrarUsuario(Usuario usuario) {
-        usuarioDao = new UsuarioDao();    
+        usuarioDao = new UsuarioDao(); 
+        
 
         int novoId;
 
@@ -34,9 +37,17 @@ public class UsuarioBo {
        
        usuarioDao = new UsuarioDao ();
       
-        if( usuarioDao.pesquisarUsuario(usuario.getLogin(), usuario.getSenha()) == null){
+        if(usuarioDao.pesquisarUsuario(usuario.getLogin(), usuario.getSenha()) == null){
             return null;
             } else {return usuario;}
+    }
+
+    public Item pesquisarItem(String descricao) {
+        item = new Item();
+        if(usuarioDao.pesquisarItem(descricao) == null){
+            return null;
+        }else {return item;}
+        
     }
     
 }
